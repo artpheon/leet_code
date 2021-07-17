@@ -8,11 +8,12 @@ public:
         if (nums.size() < 3)
             return 0;
         int first = 0, second = 1, third = 2;
-        for (; first != nums.size(); first++) {
-            for(; second != nums.size(); second++) {
-                for(; third != nums.size(); third++) {
+        for (; first != nums.size() - 2; first++) {
+            for(second = first + 1; second != nums.size() - 1; second++) {
+                for(third = second + 1; third != nums.size(); third++) {
                     if (nums[first] != nums[second] &&
-                       nums[second] != nums[third])
+                       nums[second] != nums[third] &&
+                       nums[third] != nums[first])
                         ++combinations;
                 }
             }
