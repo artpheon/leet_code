@@ -1,12 +1,8 @@
 class Graph(dict):
     def __str__(self):
-        iterator = iter(self)
-        key = next(iterator, None)
         string = ""
-        while key:
-            string = string + "{}: {}".format(key, self[key])
-            key = next(iterator, None)
-            string = string if not key else string + "\n"
+        for key in self.keys():
+            string = string + "{}: {}\n".format(key, self[key])
         return string
 
 def get_graph_by_edges(edges):
